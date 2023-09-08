@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<img src="examples/assets/jspsych.png" alt="jspsych logo" style="height: 200px; margin: 0 auto 4rem auto; background: transparent;">
+					<h3>Introduction to jspsych</h3>
+					<p><small>Shreshth Saxena</small></p>
+				</section>
+				
+
+				<section>
+					<section><h3>Differences in offline vs. online experiment building</h3></section>
+					<section>
+						<div align="left"> Tradition in-lab experiments: </br>
+						<ul style="font-size: 30px;">
+							<li>Same hardware-software configuration for all participants</li>
+							<li>Local data storage and transmission</li>
+							<li>Extensive choice of programming languages</li>
+						</ul></div>
+					</section>
+
+					<section>
+						<div align="left"> Online experiments: </br>
+						<ul style="font-size: 30px;">	
+							<li>Diverse configurations of hardware-software</li>
+							<li>Central data storage through a server</li>
+							<li>Use of web development technologies</li>
+						</ul></div>
+					</section>
+				</section>
+
+				<section>
+					<section data-auto-animate><h3>So why bother with online experiments?</h3></section>
+					<section data-auto-animate><h3>So why bother with online experiments?</h3>
+						</br>
+						<ul style="font-size: 30px;">
+							<li>Ecological and external validity</li>
+							<ul><li>Participation from diverse home environments</li></ul>
+							<li>Accessiblity</li>
+							<ul><li>Reach rare or specific sub-populations</li></ul>
+							<li>Efficiency</li>
+							<ul><li>Saves time and money for data collection</li></ul>
+							<li>Reproducibility</li>
+							<ul><li>Open web development</li></ul>
+						</ul>
+					</section>
+
+					<section data-auto-animate><h5>but also...</h5>
+						</br>
+						<ul style="font-size: 30px;">
+							<li>High statistical power and better generalizability of findings</li> 
+							<li>Reduction of experimenter effects</li>
+							<li>Detectability of motivational confounding</li>
+							<li>Experimenting around the clock</li>
+							<li>Avoidance of organizational problems</li>
+							<li>Accessiblity to research</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section data-auto-animate><h3>Web Technologies</h3></section>
+					<section data-auto-animate><h3>Web Technologies</h3> </br>
+						<ul style="font-size: 30px;">
+							<li>HTML - Content</li>
+								<ul style="font-size: 20px;"><li>Structuring web documents and apps</li></ul>
+							<li>CSS - Appearance</li>
+								<ul style="font-size: 20px;"><li>Styling web documents and apps</li></ul>
+							<li>JavaScript - Interactivity</li>
+								<ul style="font-size: 20px;"><li>Web's native programming language</li></ul>
+						</ul>
+					</section>
+					<section>
+						<h3> Quick demo </h3>
+						<small>open <a href = "https://codepen.io/pen">https://codepen.io/pen/</a> in your browsers to follow</small></br>
+						<img src="examples/assets/QR-codepen.jpeg" alt="QR2" style="height: 500px; margin: 0 auto 4rem auto; background: transparent;"></br>
+					</section>
+					<section>
+						<h3> Recommended tutorial</h3><a href="https://developer.mozilla.org/en-US/docs/Web/Tutorials" style="font-size: 20px;"> https://developer.mozilla.org/en-US/docs/Web/Tutorials</a></br>
+						<img src="examples/assets/QR-moztutorial.jpeg" alt="QR1" style="height: 500px; margin: 0 auto 4rem auto; background: transparent;"></br>
+					</section>
+				</section>
+
+				<section>
+					<section data-auto-animate>
+						<h3>Tools for online experiments</h3>
+					</section>
+					<section data-auto-animate>
+						<h3>Tools for online experiments</h3>
+						<img src="examples/assets/online-tools.jpg" alt="QR1" style="height: 400px; margin: 0 auto 4rem auto; background: transparent;">
+					</section>
+				</section>
+
+				<section>
+					<section><h3>Let's Code</h3></section>
+					<section data-auto-animate>
+						<h2 data-id="code-title">Classic HTML tree</h2>
+						<pre data-id="code-animation"><code class="hljs html" data-trim data-line-numbers>
+							&lthtml>
+							  &lthead>
+							    &lttitle>...&lt/title>
+							  &lt/head>
+							  &ltbody>
+							  	&ltscript&gt
+							  	...
+							  	&lt/script>
+							  &lt/body>
+							&lt/html>
+						</code></pre>
+					</section>
+
+					<section data-auto-animate>
+						<h2 data-id="code-title">Give it a title</h2>
+						<pre data-id="code-animation"><code class="hljs html" data-trim data-line-numbers="3">
+							&lthtml>
+							  &lthead>
+							    &lttitle>Hello world&lt/title>
+							  &lt/head>
+							  &ltbody>
+							  	&ltscript&gt
+							  	...
+							  	&lt/script>
+							  &lt/body>
+							&lt/html>
+						</code></pre>
+					</section>
+
+					<section data-auto-animate>
+						<h2 data-id="code-title">import jsPsych</h2>
+						<pre data-id="code-animation"><code class="hljs html" data-trim data-line-numbers="4,5">
+							&lthtml>
+							  &lthead>
+							    &lttitle>Hello world&lt/title>
+							    &ltscript src="https://unpkg.com/jspsych@7.3.3">&lt/script>
+							    &ltscript src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@1.1.2">&lt/script>
+							  &lt/head>
+							  &ltbody>
+							  	&ltscript&gt
+							  	...
+							  	&lt/script>
+							  &lt/body>
+							&lt/html>
+						</code></pre>
+					</section>
+
+					<section data-auto-animate>
+						<h2 data-id="code-title">Easy stylesheet import</h2>
+						<pre data-id="code-animation"><code class="hljs html" data-trim data-line-numbers="6">
+							&lthtml>
+							  &lthead>
+							    &lttitle>Hello world&lt/title>
+							    &ltscript src="https://unpkg.com/jspsych@7.3.3">&lt/script>
+							    &ltscript src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@1.1.2">&lt/script>
+							    &ltlink href="https://unpkg.com/jspsych@7.3.3/css/jspsych.css" rel="stylesheet" type="text/css" />
+							  &lt/head>
+							  &ltbody>
+							  	&ltscript>
+							  	...
+							  	&lt/script>
+							  &lt/body>
+							&lt/html>
+						</code></pre>
+					</section>
+
+
+					<section data-auto-animate>
+						<h2 data-id="code-title">Init jsPsych</h2>
+						<pre data-id="code-animation"><code class="hljs html JavaScript" data-trim data-line-numbers="10">
+							&lthtml>
+							  &lthead>
+							    &lttitle>Hello world&lt/title>
+							    &ltscript src="https://unpkg.com/jspsych@7.3.3">&lt/script>
+							    &ltscript src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@1.1.2">&lt/script>
+							    &ltlink href="https://unpkg.com/jspsych@7.3.3/css/jspsych.css" rel="stylesheet" type="text/css" />
+							  &lt/head>
+							  &ltbody>
+							  	&ltscript>
+							  		const jsPsych = initJsPsych();
+							  	&lt/script>
+							  &lt/body>
+							&lt/html>
+						</code></pre>
+					</section>
+
+					<section data-auto-animate>
+						<h2 data-id="code-title">Create a trial</h2>
+						<pre data-id="code-animation"><code class="hljs html JavaScript" data-trim data-line-numbers="12-15">
+							&lthtml>
+							  &lthead>
+							    &lttitle>Hello world&lt/title>
+							    &ltscript src="https://unpkg.com/jspsych@7.3.3">&lt/script>
+							    &ltscript src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@1.1.2">&lt/script>
+							    &ltlink href="https://unpkg.com/jspsych@7.3.3/css/jspsych.css" rel="stylesheet" type="text/css" />
+							  &lt/head>
+							  &ltbody>
+							  	&ltscript>
+							  		const jsPsych = initJsPsych();
+
+								    const hello_trial = {
+								      type: jsPsychHtmlKeyboardResponse,
+								      stimulus: 'Hello world!'
+								    }
+								&lt/script>
+							  &lt/body>
+							&lt/html>
+						</code></pre>
+					</section>
+
+					<section data-auto-animate>
+						<h2 data-id="code-title">Display stored data</h2>
+						<pre data-id="code-animation"><code class="hljs html JavaScript" data-trim data-line-numbers="10-13">
+							&lthtml>
+							  &lthead>
+							    &lttitle>Hello world&lt/title>
+							    &ltscript src="https://unpkg.com/jspsych@7.3.3">&lt/script>
+							    &ltscript src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@1.1.2">&lt/script>
+							    &ltlink href="https://unpkg.com/jspsych@7.3.3/css/jspsych.css" rel="stylesheet" type="text/css" />
+							  &lt/head>
+							  &ltbody>
+							  	&ltscript>
+							  		const jsPsych = initJsPsych({
+							  			on_finish: function() {
+									        jsPsych.data.displayData('json');
+									    }
+							  		});
+
+								    const hello_trial = {
+								      type: jsPsychHtmlKeyboardResponse,
+								      stimulus: 'Hello world!'
+								    }
+							  	&lt/script>
+							  &lt/body>
+							&lt/html>
+						</code></pre>
+					</section>
+
+					<section data-auto-animate>
+						<h2 data-id="code-title">Run the experiment</h2>
+						<pre data-id="code-animation"><code class="hljs html JavaScript" data-trim data-line-numbers="17">
+							&lthtml>
+							  &lthead>
+							    &lttitle>Hello world&lt/title>
+							    &ltscript src="https://unpkg.com/jspsych@7.3.3">&lt/script>
+							    &ltscript src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@1.1.2">&lt/script>
+							    &ltlink href="https://unpkg.com/jspsych@7.3.3/css/jspsych.css" rel="stylesheet" type="text/css" />
+							  &lt/head>
+							  &ltbody>
+							  	&ltscript>
+							  		const jsPsych = initJsPsych();
+
+								    const hello_trial = {
+								      type: jsPsychHtmlKeyboardResponse,
+								      stimulus: 'Hello world!'
+								    }
+
+								   	jsPsych.run([hello_trial]);
+							  	&lt/script>
+							  &lt/body>
+							&lt/html>
+						</code></pre>
+					</section>
+
+					<section>Save the file with an ".html" extension and open in browser</section>
+
+					<section data-background-iframe="jspsych_helloworld.html" data-background="#dddddd" data-background-interactive></section>
+					
+				</section>
+
+				<section>but what if we want to allow only spacebar for response?</section>	
+				<section>
+				<section>Docs are your best friend! </br>  <a href= "https://www.jspsych.org/"> jspsych.org </a> </section>	
+				<section data-background-iframe="https://www.jspsych.org/7.3/" data-background-interactive></section>
+				</section>
+
+				<section style="text-align: left;">
+					<h1>Thank you</h1>
+					<p>
+						saxens17@mcmaster.ca
+					</p>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
