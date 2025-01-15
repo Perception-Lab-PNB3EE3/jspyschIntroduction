@@ -198,30 +198,6 @@
 					</section>
 
 					<section data-auto-animate>
-						<h2 data-id="code-title">Create a trial</h2>
-						<pre data-id="code-animation"><code class="hljs html JavaScript" data-trim data-line-numbers="12-15">
-							&lthtml>
-							  &lthead>
-							    &lttitle>Hello world&lt/title>
-							    &ltscript src="https://unpkg.com/jspsych@7.3.3">&lt/script>
-							    &ltscript src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@1.1.2">&lt/script>
-							    &ltlink href="https://unpkg.com/jspsych@7.3.3/css/jspsych.css" rel="stylesheet" type="text/css" />
-							  &lt/head>
-							  &ltbody>
-							  	&ltscript>
-							  		const jsPsych = initJsPsych();
-
-								    const hello_trial = {
-								      type: jsPsychHtmlKeyboardResponse,
-								      stimulus: 'Hello world!'
-								    }
-								&lt/script>
-							  &lt/body>
-							&lt/html>
-						</code></pre>
-					</section>
-
-					<section data-auto-animate>
 						<h2 data-id="code-title">Display stored data</h2>
 						<pre data-id="code-animation"><code class="hljs html JavaScript" data-trim data-line-numbers="10-13">
 							&lthtml>
@@ -238,12 +214,35 @@
 									        jsPsych.data.displayData('json');
 									    }
 							  		});
-
-								    const hello_trial = {
-								      type: jsPsychHtmlKeyboardResponse,
-								      stimulus: 'Hello world!'
-								    }
 							  	&lt/script>
+							  &lt/body>
+							&lt/html>
+						</code></pre>
+					</section>
+
+					<section data-auto-animate>
+						<h2 data-id="code-title">Create a trial</h2>
+						<pre data-id="code-animation"><code class="hljs html JavaScript" data-trim data-line-numbers="12-15">
+							&lthtml>
+							  &lthead>
+							    &lttitle>Hello world&lt/title>
+							    &ltscript src="https://unpkg.com/jspsych@7.3.3">&lt/script>
+							    &ltscript src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@1.1.2">&lt/script>
+							    &ltlink href="https://unpkg.com/jspsych@7.3.3/css/jspsych.css" rel="stylesheet" type="text/css" />
+							  &lt/head>
+							  &ltbody>
+							  	&ltscript>
+							  		const jsPsych = initJsPsych({
+							  			on_finish: function() {
+									        jsPsych.data.displayData('json');
+									    }
+							  		});
+
+									    const hello_trial = {
+									      type: jsPsychHtmlKeyboardResponse,
+									      stimulus: 'Hello world!'
+									}
+								&lt/script>
 							  &lt/body>
 							&lt/html>
 						</code></pre>
@@ -261,12 +260,16 @@
 							  &lt/head>
 							  &ltbody>
 							  	&ltscript>
-							  		const jsPsych = initJsPsych();
+							  		const jsPsych = initJsPsych({
+							  			on_finish: function() {
+									        jsPsych.data.displayData('json');
+									    }
+							  		});
 
-								    const hello_trial = {
-								      type: jsPsychHtmlKeyboardResponse,
-								      stimulus: 'Hello world!'
-								    }
+									  const hello_trial = {
+									      type: jsPsychHtmlKeyboardResponse,
+									      stimulus: 'Hello world!'
+									    }
 
 								   	jsPsych.run([hello_trial]);
 							  	&lt/script>
